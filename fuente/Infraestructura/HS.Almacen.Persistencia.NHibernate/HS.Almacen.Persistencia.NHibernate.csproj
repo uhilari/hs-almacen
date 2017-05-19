@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA4F9E06-8715-4838-B1F3-A465854E4398}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HS.Almacen.Persistencia.NHibernate</RootNamespace>
+    <AssemblyName>HS.Almacen.Persistencia.NHibernate</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mapas\AlmacenMapa.cs" />
+    <Compile Include="Mapas\ArticuloMapa.cs" />
+    <Compile Include="Mapas\DocumentoMapa.cs" />
+    <Compile Include="Mapas\InstanciaSecuenciaMapa.cs" />
+    <Compile Include="Mapas\InventarioMapa.cs" />
+    <Compile Include="Mapas\LineaMovimientoMapa.cs" />
+    <Compile Include="Mapas\LoteMapa.cs" />
+    <Compile Include="Mapas\MovimientoMapa.cs" />
+    <Compile Include="Mapas\SecuenciaMapa.cs" />
+    <Compile Include="Mapas\TipoDocumentoMapa.cs" />
+    <Compile Include="Mapas\UnidadMedidaMapa.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\hs-comun\fuente\HS.Comun.Dominio\HS.Comun.Dominio.csproj">
+      <Project>{23230ff8-db56-4036-9eea-1dad1b029d4c}</Project>
+      <Name>HS.Comun.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\hs-core\fuente\Dominio\HS.Core.Dominio\HS.Core.Dominio.csproj">
+      <Project>{23616759-7ec1-4c45-9c03-13a954d9372d}</Project>
+      <Name>HS.Core.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\hs-core\fuente\Infraestructura\HS.Core.Persistencia.NHibernate\HS.Core.Persistencia.NHibernate.csproj">
+      <Project>{7068c82f-7c29-4fbf-bed6-3a55859fd388}</Project>
+      <Name>HS.Core.Persistencia.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dominio\HS.Almacen.Dominio\HS.Almacen.Dominio.csproj">
+      <Project>{c65bdb0c-8d8c-4ae1-bdbd-e25618d2dac2}</Project>
+      <Name>HS.Almacen.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

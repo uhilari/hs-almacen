@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30268306-D3B5-46FD-BA33-F3776543CB7A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HS.Almacen.Config</RootNamespace>
+    <AssemblyName>HS.Almacen.Config</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.4.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Windsor.3.4.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlmacenStartup.cs" />
+    <Compile Include="ContainerExtension.cs" />
+    <Compile Include="ExceptionHandlerConsole.cs" />
+    <Compile Include="ExceptionLoggerConsole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\hs-core\fuente\Aplicacion\HS.Core.Aplicacion\HS.Core.Aplicacion.csproj">
+      <Project>{31beff87-1b1e-48b5-918e-645577416df1}</Project>
+      <Name>HS.Core.Aplicacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\hs-core\fuente\Aplicacion\HS.Core.Config\HS.Core.Config.csproj">
+      <Project>{59577d84-4953-4b59-9aae-a046515c440d}</Project>
+      <Name>HS.Core.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\hs-core\fuente\Distribucion\HS.Core.WebApi\HS.Core.WebApi.csproj">
+      <Project>{567e591a-3464-4acd-832c-7b39510f7742}</Project>
+      <Name>HS.Core.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\hs-core\fuente\Dominio\HS.Core.Dominio\HS.Core.Dominio.csproj">
+      <Project>{23616759-7ec1-4c45-9c03-13a954d9372d}</Project>
+      <Name>HS.Core.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Aplicacion\HS.Almacen.Aplicacion.Impl\HS.Almacen.Aplicacion.Impl.csproj">
+      <Project>{cae75f62-65c3-405c-b94e-eaf03fc663c1}</Project>
+      <Name>HS.Almacen.Aplicacion.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Aplicacion\HS.Almacen.Aplicacion\HS.Almacen.Aplicacion.csproj">
+      <Project>{dada1ee9-6001-4100-b27e-519bdef08bf2}</Project>
+      <Name>HS.Almacen.Aplicacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dominio\HS.Almacen.Dominio.Impl\HS.Almacen.Dominio.Impl.csproj">
+      <Project>{d36b6ad0-643d-4ae4-806c-dd2cb7c688f7}</Project>
+      <Name>HS.Almacen.Dominio.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Dominio\HS.Almacen.Dominio\HS.Almacen.Dominio.csproj">
+      <Project>{c65bdb0c-8d8c-4ae1-bdbd-e25618d2dac2}</Project>
+      <Name>HS.Almacen.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infraestructura\HS.Almacen.Persistencia.NHibernate\HS.Almacen.Persistencia.NHibernate.csproj">
+      <Project>{ba4f9e06-8715-4838-b1f3-a465854e4398}</Project>
+      <Name>HS.Almacen.Persistencia.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Transversal\HS.Almacen.Transporte\HS.Almacen.Transporte.csproj">
+      <Project>{0472f61e-33dd-418a-9384-f9bf4a5f9b69}</Project>
+      <Name>HS.Almacen.Transporte</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HS.Almacen.WebApi\HS.Almacen.WebApi.csproj">
+      <Project>{bfff4a7d-eced-44f0-b29a-f704bef12c48}</Project>
+      <Name>HS.Almacen.WebApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

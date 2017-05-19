@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="f41b42ba-32f1-4d5a-b2f2-a7459227f3f9" ChangeDateTime="05/14/2017 19:39:23">
+    <Property Name="ElementName" Value="[dbo].[PK_Inventario_Column]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Inventario]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[UK_Inventario_Column]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7531ae68-ee0b-4579-bfb9-20fc380ec60b" ChangeDateTime="05/14/2017 19:39:31">
+    <Property Name="ElementName" Value="[dbo].[UK_Inventario_Column]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Inventario]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[UK_Inventario_Codigo]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="96cc42d8-4820-40e3-abcd-e177910d1709" ChangeDateTime="05/14/2017 19:45:25">
+    <Property Name="ElementName" Value="[dbo].[Lote].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Lote]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdDocumento" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c8dea0fe-bf70-4b27-b280-9cfb85c37215" ChangeDateTime="05/14/2017 19:47:59">
+    <Property Name="ElementName" Value="[dbo].[Movimiento].[Numeri]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Movimiento]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Numero" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3e7c5cdb-de6a-4218-b180-623b74f5bba9" ChangeDateTime="05/14/2017 19:48:44">
+    <Property Name="ElementName" Value="[dbo].[Movimiento].[Documento]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Movimiento]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdDocumento" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a775610c-e0a1-46b1-90fe-826c5ede0354" ChangeDateTime="05/14/2017 19:55:59">
+    <Property Name="ElementName" Value="[dbo].[UnidadMedida].[Eliminando]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[UnidadMedida]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Eliminado" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="906a5cc6-e2e0-4384-9108-41d4a5964267" ChangeDateTime="05/15/2017 03:39:50">
+    <Property Name="ElementName" Value="[dbo].[Lote].[Codigo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Lote]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Numero" />
+  </Operation>
+</Operations>
