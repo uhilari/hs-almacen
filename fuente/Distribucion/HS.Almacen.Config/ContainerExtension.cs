@@ -1,9 +1,11 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using HS.Almacen.Aplicacion.Servicios;
+using HS.Almacen.Dominio.Entidades;
 using HS.Almacen.Dominio.Eventos;
 using HS.Almacen.Dominio.ManejadoresEventos;
 using HS.Almacen.Dominio.Servicios;
+using HS.Eventos;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Context;
@@ -35,7 +37,8 @@ namespace HS.Almacen.Config
       return container
         .CoreDominio()
         .RegisterDependency<IInventarioFactory, InventarioFactory>()
-        .RegisterDependency<IManejadorDeEvento<ArticuloIngresado>, CrearLotePorIngreso>();
+        .RegisterDependency<IManejadorDeEvento<ArticuloIngresado>, CrearLotePorIngreso>()
+        .RegisterDependency<IManejadorDeEvento<AntesGrabarEntidad<Articulo>>, ArticuloCrearCodigo>();
     }
 
     public static IWindsorContainer AlmacenPersistencia(this IWindsorContainer container)
@@ -50,6 +53,7 @@ namespace HS.Almacen.Config
       return container
         .CoreAplicacion()
         .RegisterAppService<ICrudService<AlmacenDto>, CrudService<AlmacenDto, Dominio.Entidades.Almacen>>()
+        .RegisterAppService<ICrudService<ArticuloDto>, CrudService<ArticuloDto, Dominio.Entidades.Articulo>>()
         .RegisterAppService<IInventarioService, InventarioService>();
     }
 

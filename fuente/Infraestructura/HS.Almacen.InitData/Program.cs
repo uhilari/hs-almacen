@@ -1,7 +1,9 @@
 ﻿using HS.Almacen.Dominio.Entidades;
 using HS.Comun.Dominio.Entidades;
+using HS.Comun.Dominio.Servicios;
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Criterion;
 using NHibernate.Dialect;
 using NHibernate.Mapping.ByCode;
 using System;
@@ -18,7 +20,7 @@ namespace HS.Almacen.InitData
     static void Main(string[] args)
     {
       var sessionFactory = BuildFactory();
-      IniciarDatos(sessionFactory);
+      //IniciarDatos(sessionFactory);
       DatosDePrueba(sessionFactory);
       Console.WriteLine("Terminado");
       Console.ReadLine();
@@ -57,6 +59,7 @@ namespace HS.Almacen.InitData
           session.Save(new UnidadMedida { Codigo = "DE", Nombre = "Decena" });
           session.Save(new UnidadMedida { Codigo = "DO", Nombre = "Docena" });
 
+          session.Save(new SecuenciaUnica(Articulo.KeySecuencia) { Longitud = 6 });
           session.Save(new SecuenciaUnica(Inventario.KeySecuencia) { Longitud = 10, Prefijo = "I" });
           session.Save(new SecuenciaMensual(Movimiento.KeySecuencia));
           session.Save(new SecuenciaDiaria(Lote.KeySecuencia));
@@ -71,10 +74,17 @@ namespace HS.Almacen.InitData
       Console.WriteLine("Generando datos de prueba...");
       using (var session = factory.OpenSession())
       {
-        session.Save(new Articulo { Codigo = "000001", Descripcion = "Articulo Uno" });
-        session.Save(new Articulo { Codigo = "000002", Descripcion = "Articulo Dos" });
-        session.Save(new Articulo { Codigo = "000003", Descripcion = "Articulo Tres" });
-        session.Save(new Articulo { Codigo = "000004", Descripcion = "Articulo Cuatro" });
+        var secuencia = session.CreateCriteria<SecuenciaUnica>()
+          .Add(Restrictions.Where<SecuenciaUnica>(c => c.Llave == Articulo.KeySecuencia))
+          .UniqueResult<SecuenciaUnica>();
+
+        var instanciaSeq = secuencia[DateTime.Today];
+
+        session.Save(new Articulo { Codigo = instanciaSeq.Siguiente().Cadena(), Descripcion = "Articulo Uno" });
+        session.Save(new Articulo { Codigo = instanciaSeq.Siguiente().Cadena(), Descripcion = "Articulo Dos" });
+        session.Save(new Articulo { Codigo = instanciaSeq.Siguiente().Cadena(), Descripcion = "Articulo Tres" });
+        session.Save(new Articulo { Codigo = instanciaSeq.Siguiente().Cadena(), Descripcion = "Articulo Cuatro" });
+        session.Save(new Articulo { Codigo = instanciaSeq.Siguiente().Cadena(), Descripcion = "Articulo Quinto" });
 
         session.Flush();
       }
