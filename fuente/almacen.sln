@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HS.Comun.Config", "..\..\hs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HS.Almacen.Config", "Distribucion\HS.Almacen.Config\HS.Almacen.Config.csproj", "{30268306-D3B5-46FD-BA33-F3776543CB7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HS.Core.Logging", "..\..\hs-core\fuente\Infraestructura\HS.Core.Logging\HS.Core.Logging.csproj", "{EC5635AB-DE6C-4A65-85AC-DDF730127992}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +153,10 @@ Global
 		{30268306-D3B5-46FD-BA33-F3776543CB7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30268306-D3B5-46FD-BA33-F3776543CB7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30268306-D3B5-46FD-BA33-F3776543CB7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC5635AB-DE6C-4A65-85AC-DDF730127992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC5635AB-DE6C-4A65-85AC-DDF730127992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC5635AB-DE6C-4A65-85AC-DDF730127992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC5635AB-DE6C-4A65-85AC-DDF730127992}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -177,5 +183,6 @@ Global
 		{59577D84-4953-4B59-9AAE-A046515C440D} = {C4113071-22F6-498F-AD28-20BAE2B63C30}
 		{6E77B1CE-6509-49B7-B80D-9ECFCF4BE18B} = {CC70BEE7-44DD-4274-819E-3BACF20EC465}
 		{30268306-D3B5-46FD-BA33-F3776543CB7A} = {EB5D8E23-C1AC-4F94-A9FE-8B45825DB25C}
+		{EC5635AB-DE6C-4A65-85AC-DDF730127992} = {C4113071-22F6-498F-AD28-20BAE2B63C30}
 	EndGlobalSection
 EndGlobal

@@ -63,7 +63,7 @@ namespace HS.Almacen.Config
         .ExportedTypes.Where(c => c.EsHijo(typeof(ApiController))).ToArray();
       foreach (var tipo in tipos)
       {
-        container.Register(Component.For(tipo).LifestyleTransient());
+        container.RegisterDependency(tipo);
       }
       return container;
     }

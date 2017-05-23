@@ -1,4 +1,5 @@
 ﻿using HS.Almacen.Config;
+using log4net.Config;
 using Microsoft.Owin.Hosting;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace HS.Almacen.Consola
   {
     static void Main(string[] args)
     {
+      XmlConfigurator.Configure();
+
       string url = "http://localhost:8050";
       using (WebApp.Start<AlmacenStartup>(url))
       {

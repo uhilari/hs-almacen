@@ -29,7 +29,7 @@ namespace HS.Almacen.Dominio.Entidades
         throw new InvalidOperationException();
 
       ingreso.Numero = GestorSecuencias.Obtener(Movimiento.KeySecuencia, ingreso.Fecha).Siguiente().Valor;
-      Movimientos.Add(ingreso);
+      Movimientos.Agregar(ingreso);
 
       foreach (var l in ingreso.Lineas)
       {
@@ -41,7 +41,7 @@ namespace HS.Almacen.Dominio.Entidades
     {
       inventario.NoEsNull(nameof(inventario));
 
-      Inventarios.Add(inventario);
+      Inventarios.Agregar(inventario);
     }
   }
 }

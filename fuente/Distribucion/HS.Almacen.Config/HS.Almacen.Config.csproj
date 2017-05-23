@@ -92,6 +92,10 @@
       <Project>{23616759-7ec1-4c45-9c03-13a954d9372d}</Project>
       <Name>HS.Core.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\hs-core\fuente\Infraestructura\HS.Core.Logging\HS.Core.Logging.csproj">
+      <Project>{ec5635ab-de6c-4a65-85ac-ddf730127992}</Project>
+      <Name>HS.Core.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Aplicacion\HS.Almacen.Aplicacion.Impl\HS.Almacen.Aplicacion.Impl.csproj">
       <Project>{cae75f62-65c3-405c-b94e-eaf03fc663c1}</Project>
       <Name>HS.Almacen.Aplicacion.Impl</Name>
