@@ -96,6 +96,10 @@
       <Project>{ec5635ab-de6c-4a65-85ac-ddf730127992}</Project>
       <Name>HS.Core.Logging</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\hs-core\fuente\Infraestructura\HS.Core.Persistencia.NHibernate\HS.Core.Persistencia.NHibernate.csproj">
+      <Project>{7068c82f-7c29-4fbf-bed6-3a55859fd388}</Project>
+      <Name>HS.Core.Persistencia.NHibernate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Aplicacion\HS.Almacen.Aplicacion.Impl\HS.Almacen.Aplicacion.Impl.csproj">
       <Project>{cae75f62-65c3-405c-b94e-eaf03fc663c1}</Project>
       <Name>HS.Almacen.Aplicacion.Impl</Name>

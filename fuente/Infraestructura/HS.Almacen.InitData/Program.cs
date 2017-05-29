@@ -50,19 +50,19 @@ namespace HS.Almacen.InitData
       {
         using (var tran = session.BeginTransaction())
         {
-          session.Save(new Dominio.Entidades.Almacen { Codigo = "01", Nombre = "Principal" });
+          //session.Save(new Dominio.Entidades.Almacen { Codigo = "01", Nombre = "Principal" });
 
-          session.Save(new TipoDocumento { Codigo = "GR", Descripcion = "Guia de Remisión" });
-          session.Save(new TipoDocumento { Codigo = "FA", Descripcion = "Factura" });
+          //session.Save(new TipoDocumento { Codigo = "GR", Descripcion = "Guia de Remisión" });
+          //session.Save(new TipoDocumento { Codigo = "FA", Descripcion = "Factura" });
 
-          session.Save(new UnidadMedida { Codigo = "UN", Nombre = "Unidad" });
-          session.Save(new UnidadMedida { Codigo = "DE", Nombre = "Decena" });
-          session.Save(new UnidadMedida { Codigo = "DO", Nombre = "Docena" });
+          //session.Save(new UnidadMedida { Codigo = "UN", Nombre = "Unidad" });
+          //session.Save(new UnidadMedida { Codigo = "DE", Nombre = "Decena" });
+          //session.Save(new UnidadMedida { Codigo = "DO", Nombre = "Docena" });
 
-          session.Save(new SecuenciaUnica(Articulo.KeySecuencia) { Longitud = 6 });
-          session.Save(new SecuenciaUnica(Inventario.KeySecuencia) { Longitud = 10, Prefijo = "I" });
-          session.Save(new SecuenciaMensual(Movimiento.KeySecuencia));
-          session.Save(new SecuenciaDiaria(Lote.KeySecuencia));
+          //session.Save(new SecuenciaUnica(Articulo.KeySecuencia) { Longitud = 6 });
+          //session.Save(new SecuenciaUnica(Inventario.KeySecuencia) { Longitud = 10, Prefijo = "I" });
+          session.Save(new SecuenciaMensual(Dominio.ManejadoresEventos.CrearNumeroMovimiento.KeySecuencia));
+          //session.Save(new SecuenciaDiaria(Lote.KeySecuencia));
 
           tran.Commit();
         }
@@ -75,7 +75,7 @@ namespace HS.Almacen.InitData
       using (var session = factory.OpenSession())
       {
         var secuencia = session.CreateCriteria<SecuenciaUnica>()
-          .Add(Restrictions.Where<SecuenciaUnica>(c => c.Llave == Articulo.KeySecuencia))
+          .Add(Restrictions.Where<SecuenciaUnica>(c => c.Llave == Dominio.ManejadoresEventos.CrearCodigoArticulo.KeySecuencia))
           .UniqueResult<SecuenciaUnica>();
 
         var instanciaSeq = secuencia[DateTime.Today];

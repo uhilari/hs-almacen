@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ManejadoresEventos\ArticuloCrearCodigo.cs" />
+    <Compile Include="ManejadoresEventos\CrearCodigoArticulo.cs" />
     <Compile Include="ManejadoresEventos\CrearLotePorIngreso.cs" />
+    <Compile Include="ManejadoresEventos\CrearNumeroMovimiento.cs" />
+    <Compile Include="ManejadoresEventos\DescontarStockPorSalida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\InventarioFactory.cs" />
   </ItemGroup>

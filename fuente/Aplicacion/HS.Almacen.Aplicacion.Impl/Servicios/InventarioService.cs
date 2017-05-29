@@ -1,5 +1,6 @@
 ﻿using System;
-using HS.Almacen.Aplicacion.Mapper;
+using System.Linq;
+using HS.Almacen.Aplicacion.Mapeos;
 
 namespace HS.Almacen.Aplicacion.Servicios
 {
@@ -12,10 +13,16 @@ namespace HS.Almacen.Aplicacion.Servicios
       _repositorio = repositorio;
     }
 
-    public void Registrar(string idAlmacen, IngresoAlmacen ingresoAlmacen)
+    public void RegistrarIngreso(string idAlmacen, IngresoAlmacen ingresoAlmacen)
     {
       var almacen = _repositorio.Get<Dominio.Entidades.Almacen>(idAlmacen.Guid());
       almacen.AgregarIngreso(_repositorio.CrearMovimiento(ingresoAlmacen));
+    }
+
+    public void RegistrarSalida(string idAlmacen, SalidaAlmacen salidaAlmacen)
+    {
+      var almacen = _repositorio.Get<Dominio.Entidades.Almacen>(idAlmacen.Guid());
+      almacen.AgregarSalida(_repositorio.CrearMovimiento(salidaAlmacen));
     }
   }
 }

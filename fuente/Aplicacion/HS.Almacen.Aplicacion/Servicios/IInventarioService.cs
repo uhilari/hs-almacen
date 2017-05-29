@@ -6,6 +6,7 @@ namespace HS.Almacen.Aplicacion.Servicios
 {
   public interface IInventarioService
   {
-    void Registrar(string idAlmacen, IngresoAlmacen ingresoAlmacen);
+    void RegistrarIngreso(string idAlmacen, IngresoAlmacen ingresoAlmacen);
+    void RegistrarSalida(string idAlmacen, SalidaAlmacen salidaAlmacen);
   }
 }

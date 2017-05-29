@@ -1,10 +1,12 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using HS.Almacen.Aplicacion.Servicios;
+using HS.Almacen.Dominio.Consultas;
 using HS.Almacen.Dominio.Entidades;
 using HS.Almacen.Dominio.Eventos;
 using HS.Almacen.Dominio.ManejadoresEventos;
 using HS.Almacen.Dominio.Servicios;
+using HS.Almacen.Persistencia.NHibernate.Consultas;
 using HS.Eventos;
 using NHibernate;
 using NHibernate.Cfg;
@@ -38,14 +40,17 @@ namespace HS.Almacen.Config
         .CoreDominio()
         .RegisterDependency<IInventarioFactory, InventarioFactory>()
         .RegisterDependency<IManejadorDeEvento<ArticuloIngresado>, CrearLotePorIngreso>()
-        .RegisterDependency<IManejadorDeEvento<AntesGrabarEntidad<Articulo>>, ArticuloCrearCodigo>();
+        .RegisterDependency<IManejadorDeEvento<ArticuloRetirado>, DescontarStockPorSalida>()
+        .RegisterDependency<IManejadorDeEvento<AntesGrabarEntidad<Articulo>>, CrearCodigoArticulo>()
+        .RegisterDependency<IManejadorDeEvento<AntesGrabarEntidad<Movimiento>>, CrearNumeroMovimiento>();
     }
 
     public static IWindsorContainer AlmacenPersistencia(this IWindsorContainer container)
     {
       return container
         .CorePersistencia()
-        .Register(Component.For<ISessionFactory>().Instance(CrearSessionFactory()));
+        .Register(Component.For<ISessionFactory>().Instance(CrearSessionFactory()))
+        .RegisterDependency<IStockActual, StockActual>();
     }
 
     public static IWindsorContainer AlmacenAplicacion(this IWindsorContainer container)
@@ -54,7 +59,8 @@ namespace HS.Almacen.Config
         .CoreAplicacion()
         .RegisterAppService<ICrudService<AlmacenDto>, CrudService<AlmacenDto, Dominio.Entidades.Almacen>>()
         .RegisterAppService<ICrudService<ArticuloDto>, CrudService<ArticuloDto, Dominio.Entidades.Articulo>>()
-        .RegisterAppService<IInventarioService, InventarioService>();
+        .RegisterAppService<IInventarioService, InventarioService>()
+        .RegisterAppService<IKardexService, KardexService>();
     }
 
     public static IWindsorContainer AlmacenWebApi(this IWindsorContainer container)

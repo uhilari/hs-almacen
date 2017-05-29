@@ -9,19 +9,21 @@ using System.Threading.Tasks;
 
 namespace HS.Almacen.Dominio.ManejadoresEventos
 {
-  public class ArticuloCrearCodigo : IManejadorDeEvento<AntesGrabarEntidad<Entidades.Articulo>>
+  public class CrearCodigoArticulo : IManejadorDeEvento<AntesGrabarEntidad<Entidades.Articulo>>
   {
+    public const string KeySecuencia = "SEQ-ARTICULO";
+
     private IRepository<Secuencia> _repositorio;
 
-    public ArticuloCrearCodigo(IRepository<Secuencia> repositorio)
+    public CrearCodigoArticulo(IRepository<Secuencia> repositorio)
     {
       _repositorio = repositorio;
     }
 
     public void Ejecutar(AntesGrabarEntidad<Articulo> evento)
     {
-      var seq = _repositorio.BuscarUno(c => c.Llave == Articulo.KeySecuencia);
-      evento.Entidad.Codigo = seq[DateTime.Today].Siguiente().Cadena();
+      var secuencia = _repositorio.BuscarUno(c => c.Llave == KeySecuencia)[DateTime.Today];
+      evento.Entidad.Codigo = secuencia.Siguiente().Cadena();
     }
   }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\IInventarioService.cs" />
+    <Compile Include="Servicios\IKardexService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\hs-core\fuente\Aplicacion\HS.Core.Aplicacion\HS.Core.Aplicacion.csproj">

@@ -10,5 +10,15 @@ namespace HS.Almacen.Dominio.Entidades
     public virtual int Numero { get; set; }
     public virtual DateTime Fecha { get; set; }
     public virtual TipoDocumento Tipo { get; set; }
+
+    public static string NumeroComoCadena(int serie, int numero)
+    {
+      return serie.Cadena(3) + "-" + numero.Cadena(8);
+    }
+
+    public virtual string NumeroComoCadena()
+    {
+      return Documento.NumeroComoCadena(Serie, Numero);
+    }
   }
 }

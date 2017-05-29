@@ -22,25 +22,44 @@ namespace HS.Almacen.Dominio.Entidades
     public virtual ILista<Movimiento> Movimientos { get; protected set; }
     public virtual ILista<Inventario> Inventarios { get; protected set; }
 
-    public virtual void AgregarIngreso(Movimiento ingreso)
+    private void _agregarMovimiento(Movimiento movimiento, TipoMovimiento tipo, Action<LineaMovimiento> accionLinea)
     {
-      ingreso.NoEsNull(nameof(ingreso));
-      if (ingreso.Tipo != TipoMovimiento.Ingreso)
+      movimiento.NoEsNull(nameof(movimiento));
+      if (movimiento.Tipo != tipo)
         throw new InvalidOperationException();
 
-      ingreso.Numero = GestorSecuencias.Obtener(Movimiento.KeySecuencia, ingreso.Fecha).Siguiente().Valor;
-      Movimientos.Agregar(ingreso);
+      movimiento.Almacen = this;
+      Movimientos.Agregar(movimiento);
 
-      foreach (var l in ingreso.Lineas)
+      foreach (var linea in movimiento.Lineas)
+      {
+        accionLinea(linea);
+      }
+    }
+
+    public virtual void AgregarIngreso(Movimiento ingreso)
+    {
+      _agregarMovimiento(ingreso, TipoMovimiento.Ingreso, l =>
       {
         GestorEventos.LanzarEvento(new ArticuloIngresado(this, l));
-      }
+      });
+    }
+
+    public virtual void AgregarSalida(Movimiento salida)
+    {
+      _agregarMovimiento(salida, TipoMovimiento.Salida, l => 
+      {
+        var inventario = Inventarios.Buscar(c => c.Articulo == l.Articulo);
+        l.Precio = inventario.GetPrecioPromedio();
+        GestorEventos.LanzarEvento(new ArticuloRetirado(inventario, l.Cantidad));
+      });
     }
 
     public virtual void AgregarInventario(Inventario inventario)
     {
       inventario.NoEsNull(nameof(inventario));
 
+      inventario.Almacen = this;
       Inventarios.Agregar(inventario);
     }
   }

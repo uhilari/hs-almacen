@@ -64,6 +64,10 @@
       <Project>{23616759-7ec1-4c45-9c03-13a954d9372d}</Project>
       <Name>HS.Core.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Dominio\HS.Almacen.Dominio.Impl\HS.Almacen.Dominio.Impl.csproj">
+      <Project>{d36b6ad0-643d-4ae4-806c-dd2cb7c688f7}</Project>
+      <Name>HS.Almacen.Dominio.Impl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Dominio\HS.Almacen.Dominio\HS.Almacen.Dominio.csproj">
       <Project>{c65bdb0c-8d8c-4ae1-bdbd-e25618d2dac2}</Project>
       <Name>HS.Almacen.Dominio</Name>

@@ -21,7 +21,13 @@ namespace HS.Almacen.WebApi
     [Route("{idAlmacen}/ingreso"), HttpPost]
     public void RegistrarIngreso(string idAlmacen, [FromBody] IngresoAlmacen ingreso)
     {
-      _inventarioService.Registrar(idAlmacen, ingreso);
+      _inventarioService.RegistrarIngreso(idAlmacen, ingreso);
+    }
+
+    [Route("{idAlmacen}/salida"), HttpPost]
+    public void RegistrarSalida(string idAlmacen, [FromBody] SalidaAlmacen salida)
+    {
+      _inventarioService.RegistrarSalida(idAlmacen, salida);
     }
   }
 }

@@ -16,7 +16,9 @@ namespace HS.Almacen.Persistencia.NHibernate.Mapas
       Lista(c => c.Lotes, "IdInventario");
       Property(c => c.Maximo);
       Property(c => c.Minimo);
+      ManyToOne(c => c.Almacen, m => m.Column("IdAlmacen"));
       ManyToOne(c => c.Unidad, m => m.Column("IdUnidadMedida"));
+      Lista(c => c.Cierres, "IdInventario");
     }
   }
 }

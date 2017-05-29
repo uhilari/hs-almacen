@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mapeos\IngresoMapeo.cs" />
+    <Compile Include="Mapeos\SalidaMapeo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\InventarioService.cs" />
+    <Compile Include="Servicios\KardexService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\hs-core\fuente\Dominio\HS.Core.Dominio\HS.Core.Dominio.csproj">

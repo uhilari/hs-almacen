@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\StockActual.cs" />
     <Compile Include="Mapas\AlmacenMapa.cs" />
     <Compile Include="Mapas\ArticuloMapa.cs" />
     <Compile Include="Mapas\DocumentoMapa.cs" />
@@ -78,6 +79,10 @@
     <ProjectReference Include="..\..\Dominio\HS.Almacen.Dominio\HS.Almacen.Dominio.csproj">
       <Project>{c65bdb0c-8d8c-4ae1-bdbd-e25618d2dac2}</Project>
       <Name>HS.Almacen.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Transversal\HS.Almacen.Transporte\HS.Almacen.Transporte.csproj">
+      <Project>{0472f61e-33dd-418a-9384-f9bf4a5f9b69}</Project>
+      <Name>HS.Almacen.Transporte</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,6 +10,7 @@ namespace HS.Almacen
     public string TipoDocumento { get; set; }
     public int Serie { get; set; }
     public int Numero { get; set; }
+    public IList<LineaSalidaAlmacen> Lineas { get; set; }
   }
 
   public class LineaSalidaAlmacen

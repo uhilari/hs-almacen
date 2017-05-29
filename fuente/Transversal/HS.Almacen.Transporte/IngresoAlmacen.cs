@@ -6,7 +6,6 @@ namespace HS.Almacen
 {
   public class IngresoAlmacen
   {
-    public string Almacen { get; set; }
     public DateTime Fecha { get; set; }
     public string TipoDocumento { get; set; }
     public int Serie { get; set; }
