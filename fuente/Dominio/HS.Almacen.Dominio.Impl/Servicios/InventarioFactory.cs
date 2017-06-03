@@ -11,6 +11,9 @@ namespace HS.Almacen.Dominio.Servicios
 {
   public class InventarioFactory : IInventarioFactory
   {
+    public const string KeyInventario = "SEQ-INVENTARIO";
+    public const string KeyLote = "SEQ-LOTE";
+
     private IRepository<Secuencia> _repositorio;
 
     public InventarioFactory(IRepository<Secuencia> repositorio)
@@ -21,7 +24,7 @@ namespace HS.Almacen.Dominio.Servicios
     public Inventario CrearInventario(LineaMovimiento linea)
     {
       linea.NoEsNull(nameof(linea));
-      var secuencia = _repositorio.BuscarUno(c => c.Llave == Inventario.KeySecuencia)[linea.Movimiento.Fecha];
+      var secuencia = _repositorio.BuscarUno(c => c.Llave == KeyInventario)[linea.Movimiento.Fecha];
       return new Inventario(linea.Articulo, linea.Unidad)
       {
         Codigo = secuencia.Siguiente().Cadena()
@@ -31,7 +34,7 @@ namespace HS.Almacen.Dominio.Servicios
     public Lote CrearLote(LineaMovimiento linea)
     {
       linea.NoEsNull(nameof(linea));
-      var secuencia = _repositorio.BuscarUno(c => c.Llave == Lote.KeySecuencia)[linea.Movimiento.Fecha];
+      var secuencia = _repositorio.BuscarUno(c => c.Llave == KeyLote)[linea.Movimiento.Fecha];
       return new Lote(linea.Movimiento.Documento)
       {
         Numero = secuencia.Siguiente().Valor,

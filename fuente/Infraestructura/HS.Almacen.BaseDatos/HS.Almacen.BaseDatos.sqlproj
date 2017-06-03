@@ -66,7 +66,7 @@
     <Build Include="LineaMovimiento.sql" />
     <Build Include="Lote.sql" />
     <Build Include="Movimiento.sql" />
-    <Build Include="TipoDocumento.sql" />
+    <Build Include="Datos.sql" />
     <Build Include="UnidadMedida.sql" />
     <Build Include="Secuencia.sql" />
     <Build Include="InstanciaSecuencia.sql" />

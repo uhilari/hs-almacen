@@ -44,6 +44,7 @@
     <Compile Include="Consultas\IStockActual.cs" />
     <Compile Include="Entidades\Almacen.cs" />
     <Compile Include="Entidades\Articulo.cs" />
+    <Compile Include="Entidades\CierreInventario.cs" />
     <Compile Include="Entidades\Documento.cs" />
     <Compile Include="Entidades\Inventario.cs" />
     <Compile Include="Entidades\LineaMovimiento.cs" />

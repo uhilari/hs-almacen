@@ -50,19 +50,19 @@ namespace HS.Almacen.InitData
       {
         using (var tran = session.BeginTransaction())
         {
-          //session.Save(new Dominio.Entidades.Almacen { Codigo = "01", Nombre = "Principal" });
+          session.Save(new Dominio.Entidades.Almacen { Codigo = "01", Nombre = "Principal" });
 
-          //session.Save(new TipoDocumento { Codigo = "GR", Descripcion = "Guia de Remisión" });
-          //session.Save(new TipoDocumento { Codigo = "FA", Descripcion = "Factura" });
+          session.Save(new TipoDocumento { Codigo = "GR", Descripcion = "Guia de Remisión" });
+          session.Save(new TipoDocumento { Codigo = "FA", Descripcion = "Factura" });
 
-          //session.Save(new UnidadMedida { Codigo = "UN", Nombre = "Unidad" });
-          //session.Save(new UnidadMedida { Codigo = "DE", Nombre = "Decena" });
-          //session.Save(new UnidadMedida { Codigo = "DO", Nombre = "Docena" });
+          session.Save(new UnidadMedida { Codigo = "UN", Nombre = "Unidad" });
+          session.Save(new UnidadMedida { Codigo = "DE", Nombre = "Decena" });
+          session.Save(new UnidadMedida { Codigo = "DO", Nombre = "Docena" });
 
-          //session.Save(new SecuenciaUnica(Articulo.KeySecuencia) { Longitud = 6 });
-          //session.Save(new SecuenciaUnica(Inventario.KeySecuencia) { Longitud = 10, Prefijo = "I" });
+          session.Save(new SecuenciaUnica(Dominio.ManejadoresEventos.CrearCodigoArticulo.KeySecuencia) { Longitud = 7, Prefijo = "A" });
+          session.Save(new SecuenciaUnica(Dominio.Servicios.InventarioFactory.KeyInventario) { Longitud = 10, Prefijo = "I" });
           session.Save(new SecuenciaMensual(Dominio.ManejadoresEventos.CrearNumeroMovimiento.KeySecuencia));
-          //session.Save(new SecuenciaDiaria(Lote.KeySecuencia));
+          session.Save(new SecuenciaDiaria(Dominio.Servicios.InventarioFactory.KeyLote));
 
           tran.Commit();
         }

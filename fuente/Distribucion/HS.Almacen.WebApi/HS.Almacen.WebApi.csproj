@@ -66,7 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlmacenController.cs" />
-    <Compile Include="InventarioController.cs" />
     <Compile Include="ArticuloController.cs" />
     <Compile Include="KardexController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,7 +15,7 @@ namespace HS.Almacen.Dominio.Servicios
 
     public InventarioFactoryTest()
     {
-      _factory = new InventarioFactory();
+      //_factory = new InventarioFactory();
     }
 
     public class CrearExistencia: InventarioFactoryTest

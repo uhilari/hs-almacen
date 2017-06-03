@@ -1,5 +1,6 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using HS.Almacen.Aplicacion.Mapeos;
 using HS.Almacen.Aplicacion.Servicios;
 using HS.Almacen.Dominio.Consultas;
 using HS.Almacen.Dominio.Entidades;
@@ -57,9 +58,9 @@ namespace HS.Almacen.Config
     {
       return container
         .CoreAplicacion()
-        .RegisterAppService<ICrudService<AlmacenDto>, CrudService<AlmacenDto, Dominio.Entidades.Almacen>>()
+        .RegisterDependency<IMapper<IngresoAlmacen, Movimiento>, IngresoMapeo>()
+        .RegisterAppService<IAlmacenService, AlmacenService>()
         .RegisterAppService<ICrudService<ArticuloDto>, CrudService<ArticuloDto, Dominio.Entidades.Articulo>>()
-        .RegisterAppService<IInventarioService, InventarioService>()
         .RegisterAppService<IKardexService, KardexService>();
     }
 

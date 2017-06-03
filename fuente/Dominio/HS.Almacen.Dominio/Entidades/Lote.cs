@@ -6,8 +6,6 @@ namespace HS.Almacen.Dominio.Entidades
 {
   public class Lote : EntityBase
   {
-    public const string KeySecuencia = "SEQ-LOTE";
-
     protected Lote() { }
 
     public Lote(Documento documento)

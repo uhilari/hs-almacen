@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicios\IInventarioService.cs" />
+    <Compile Include="Servicios\IAlmacenService.cs" />
     <Compile Include="Servicios\IKardexService.cs" />
   </ItemGroup>
   <ItemGroup>

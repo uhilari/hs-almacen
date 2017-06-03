@@ -7,7 +7,7 @@ namespace HS.Almacen
   public class IngresoAlmacen
   {
     public DateTime Fecha { get; set; }
-    public string TipoDocumento { get; set; }
+    public string IdTipoDocumento { get; set; }
     public int Serie { get; set; }
     public int Numero { get; set; }
     public IList<LineaIngresoAlmacen> Lineas { get; set; }
@@ -15,8 +15,8 @@ namespace HS.Almacen
 
   public class LineaIngresoAlmacen
   {
-    public string Articulo { get; set; }
-    public string UnidadMedida { get; set; }
+    public string IdArticulo { get; set; }
+    public string IdUnidad { get; set; }
     public decimal Cantidad { get; set; }
     public decimal Precio { get; set; }
   }

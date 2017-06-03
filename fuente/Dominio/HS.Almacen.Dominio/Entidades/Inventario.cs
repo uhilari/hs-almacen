@@ -8,8 +8,6 @@ namespace HS.Almacen.Dominio.Entidades
 {
   public class Inventario: EntityBase
   {
-    public const string KeySecuencia = "SEQ-INVENTARIO";
-
     protected Inventario() { }
 
     public Inventario(Articulo articulo, UnidadMedida unidad)

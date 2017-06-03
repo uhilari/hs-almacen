@@ -7,35 +7,27 @@ using System.Threading.Tasks;
 
 namespace HS.Almacen.Aplicacion.Mapeos
 {
-  public static class SalidaMapeo
+  public class SalidaMapeo: Mapper<SalidaAlmacen, Movimiento>, IMapper<SalidaAlmacen, Movimiento>
   {
-    public static Movimiento CrearMovimiento(this IGenericRepository repositorio, SalidaAlmacen salidaAlmacen)
+    public SalidaMapeo(IGenericRepository repository, IMapperFactory mapperFactory) 
+      : base(repository)
     {
-      var movimiento = new Movimiento
-      {
-        Documento = new Documento
-        {
-          Fecha = salidaAlmacen.Fecha,
-          Numero = salidaAlmacen.Numero,
-          Serie = salidaAlmacen.Serie,
-          Tipo = repositorio.Get<TipoDocumento>(salidaAlmacen.TipoDocumento.Guid())
-        },
-        Fecha = DateTime.Today,
-        Tipo = TipoMovimiento.Salida
-      };
-      movimiento.Lineas = salidaAlmacen.Lineas.Select(c => CrearLineaMovimiento(repositorio, movimiento, c)).ToLista();
-      return movimiento;
-    }
+      DestinoDto(c => c.Fecha).Funcion(c => c.Documento.Fecha);
+      DestinoDto(c => c.Numero).Funcion(c => c.Documento.Numero);
+      DestinoDto(c => c.Serie).Funcion(c => c.Documento.Serie);
+      DestinoDto(c => c.TipoDocumento).Funcion(c => c.Documento.Tipo.Id.Cadena());
 
-    private static LineaMovimiento CrearLineaMovimiento(IGenericRepository repositorio, Movimiento movimiento, LineaSalidaAlmacen lineaSalida)
-    {
-      return new LineaMovimiento
+      DestinoEntity(c => c.Documento).Funcion(c => new Documento
       {
-        Articulo = repositorio.Get<Articulo>(lineaSalida.Articulo.Guid()),
-        Cantidad = lineaSalida.Cantidad,
-        Movimiento = movimiento,
-        Unidad = repositorio.Get<UnidadMedida>(lineaSalida.UnidadMedida.Guid())
-      };
+        Fecha = c.Fecha,
+        Numero = c.Numero,
+        Serie = c.Serie,
+        Tipo = repository.Get<TipoDocumento>(c.TipoDocumento.Guid())
+      });
+      DestinoEntity(c => c.Fecha).Constante(DateTime.Today);
+      DestinoEntity(c => c.Tipo).Constante(TipoMovimiento.Salida);
+      DestinoEntityLista(c => c.Lineas).Funcion(c => c.Lineas).Mapper(mapperFactory.GetMapper<LineaSalidaAlmacen, LineaMovimiento>());
+      AfterMakeEntity(m => m.Lineas.ForEach(l => l.Movimiento = m));
     }
   }
 }

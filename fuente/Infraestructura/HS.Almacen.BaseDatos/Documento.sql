@@ -6,5 +6,5 @@
     [Numero] INT NOT NULL, 
     [IdTipoDocumento] UNIQUEIDENTIFIER NULL, 
     [Eliminado] BIT NOT NULL, 
-    CONSTRAINT [FK_Documento_TipoDocumento] FOREIGN KEY ([IdTipoDocumento]) REFERENCES [TipoDocumento]([Id])
+    CONSTRAINT [FK_Documento_TipoDocumento] FOREIGN KEY ([IdTipoDocumento]) REFERENCES [Datos]([Id])
 )

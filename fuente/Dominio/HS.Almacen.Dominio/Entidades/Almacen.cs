@@ -55,12 +55,13 @@ namespace HS.Almacen.Dominio.Entidades
       });
     }
 
-    public virtual void AgregarInventario(Inventario inventario)
+    public virtual Inventario AgregarInventario(Inventario inventario)
     {
       inventario.NoEsNull(nameof(inventario));
 
       inventario.Almacen = this;
       Inventarios.Agregar(inventario);
+      return inventario;
     }
   }
 }

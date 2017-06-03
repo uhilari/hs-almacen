@@ -49,6 +49,7 @@
     <Compile Include="Consultas\StockActual.cs" />
     <Compile Include="Mapas\AlmacenMapa.cs" />
     <Compile Include="Mapas\ArticuloMapa.cs" />
+    <Compile Include="Mapas\CierreInventarioMapa.cs" />
     <Compile Include="Mapas\DocumentoMapa.cs" />
     <Compile Include="Mapas\InstanciaSecuenciaMapa.cs" />
     <Compile Include="Mapas\InventarioMapa.cs" />
@@ -56,7 +57,7 @@
     <Compile Include="Mapas\LoteMapa.cs" />
     <Compile Include="Mapas\MovimientoMapa.cs" />
     <Compile Include="Mapas\SecuenciaMapa.cs" />
-    <Compile Include="Mapas\TipoDocumentoMapa.cs" />
+    <Compile Include="Mapas\DatosMapa.cs" />
     <Compile Include="Mapas\UnidadMedidaMapa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
