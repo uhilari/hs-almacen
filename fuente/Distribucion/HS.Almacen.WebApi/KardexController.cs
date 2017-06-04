@@ -8,38 +8,32 @@ using System.Web.Http;
 
 namespace HS.Almacen.WebApi
 {
-  [RoutePrefix("kardex")]
-  public class KardexController: ApiController
+  [RoutePrefix("stock")]
+  public class StockController: ApiController
   {
     private IKardexService _servicio;
 
-    public KardexController(IKardexService servicio)
+    public StockController(IKardexService servicio)
     {
       _servicio = servicio;
     }
 
-    [Route("sa/{idAlmacen}"), HttpGet]
-    public IEnumerable<Stock> StockActual(string idAlmacen)
+    [Route("almacen/{idAlmacen}"), HttpGet]
+    public IEnumerable<Stock> StockAlmacen(string idAlmacen)
     {
-      return _servicio.StockActual(idAlmacen);
+      return _servicio.StockDeAlmacen(idAlmacen);
     }
 
-    [Route("lt/{idAlmacen}/{año}/{mes}/"), HttpGet]
-    public IEnumerable<Kardex> Lista(string idAlmacen, int año, int mes)
+    [Route("almacen/{idAlmacen}/articulo/{idArticulo}"), HttpGet]
+    public Stock StockActual(string idAlmacen, string idArticulo, string idUnidadMedida = null)
     {
-      return _servicio.Lista(idAlmacen, año, mes);
+      return _servicio.StockActual(idAlmacen, idArticulo, idUnidadMedida);
     }
 
-    [Route("un/{idInventario}/{año}/{mes}"), HttpGet]
-    public Kardex Ver(string idInventario, int año, int mes)
+    [Route("articulo/{idArticulo}"), HttpGet]
+    public IEnumerable<Stock>  StockArticulo(string idArticulo)
     {
-      return _servicio.Uno(idInventario, año, mes);
-    }
-
-    [Route("un/{idAlmacen}/{idArticulo}/{año}/{mes}"), HttpGet]
-    public Kardex Ver(string idAlmacen, string idArticulo, int año, int mes)
-    {
-      return _servicio.Uno(idAlmacen, idArticulo, año, mes);
+      return _servicio.StockDeArticulo(idArticulo);
     }
   }
 }

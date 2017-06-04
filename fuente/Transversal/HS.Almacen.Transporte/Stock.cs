@@ -7,6 +7,7 @@ namespace HS.Almacen
   public class Stock
   {
     public string Id { get; set; }
+    public string Almacen { get; set; }
     public string CodArticulo { get; set; }
     public string Articulo { get; set; }
     public string UnidadMedida { get; set; }

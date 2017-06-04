@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Mapeos\IngresoMapeo.cs" />
     <Compile Include="Mapeos\SalidaMapeo.cs" />
+    <Compile Include="Mapeos\StockMapeo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\AlmacenService.cs" />
     <Compile Include="Servicios\KardexService.cs" />

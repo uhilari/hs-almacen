@@ -13,7 +13,10 @@ namespace HS.Almacen.Persistencia.NHibernate.Mapas
     {
       ManyToOne(c => c.Articulo, m => m.Column("IdArticulo"));
       Property(c => c.Codigo);
-      Lista(c => c.Lotes, "IdInventario");
+      Lista(c => c.Lotes, "IdInventario", a =>
+      {
+        a.Where("Saldo > 0");
+      });
       Property(c => c.Maximo);
       Property(c => c.Minimo);
       ManyToOne(c => c.Almacen, m => m.Column("IdAlmacen"));

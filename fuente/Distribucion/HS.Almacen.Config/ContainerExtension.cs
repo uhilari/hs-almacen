@@ -40,6 +40,7 @@ namespace HS.Almacen.Config
       return container
         .CoreDominio()
         .RegisterDependency<IInventarioFactory, InventarioFactory>()
+        .RegisterDependency<IGestorStock, GestorStock>()
         .RegisterDependency<IManejadorDeEvento<ArticuloIngresado>, CrearLotePorIngreso>()
         .RegisterDependency<IManejadorDeEvento<ArticuloRetirado>, DescontarStockPorSalida>()
         .RegisterDependency<IManejadorDeEvento<AntesGrabarEntidad<Articulo>>, CrearCodigoArticulo>()
@@ -51,7 +52,8 @@ namespace HS.Almacen.Config
       return container
         .CorePersistencia()
         .Register(Component.For<ISessionFactory>().Instance(CrearSessionFactory()))
-        .RegisterDependency<IStockActual, StockActual>();
+        .RegisterDependency<IStockPorAlmacen, StockPorAlmacen>()
+        .RegisterDependency<IStockPorArticulo, StockPorArticulo>();
     }
 
     public static IWindsorContainer AlmacenAplicacion(this IWindsorContainer container)
@@ -59,6 +61,8 @@ namespace HS.Almacen.Config
       return container
         .CoreAplicacion()
         .RegisterDependency<IMapper<IngresoAlmacen, Movimiento>, IngresoMapeo>()
+        .RegisterDependency<IMapper<SalidaAlmacen, Movimiento>, SalidaMapeo>()
+        .RegisterDependency<IMapper<Stock, Inventario>, StockMapeo>()
         .RegisterAppService<IAlmacenService, AlmacenService>()
         .RegisterAppService<ICrudService<ArticuloDto>, CrudService<ArticuloDto, Dominio.Entidades.Articulo>>()
         .RegisterAppService<IKardexService, KardexService>();

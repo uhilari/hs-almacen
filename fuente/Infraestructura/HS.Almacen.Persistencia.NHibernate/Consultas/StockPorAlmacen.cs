@@ -9,9 +9,9 @@ using NHibernate.Transform;
 
 namespace HS.Almacen.Persistencia.NHibernate.Consultas
 {
-  public class StockActual : ConsultaHqlLista<Stock>, IStockActual
+  public class StockPorAlmacen : ConsultaHqlLista<Stock>, IStockPorAlmacen
   {
-    public StockActual(ISessionFactory factory) : base(factory)
+    public StockPorAlmacen(ISessionFactory factory) : base(factory)
     {
       ResultTransformer = new DtoTransform<Stock>();
     }
@@ -21,12 +21,13 @@ namespace HS.Almacen.Persistencia.NHibernate.Consultas
     protected override string GetCadenaConsulta()
     {
       return @"
-Select i.Id as Id, i.Articulo.Codigo as CodArticulo, i.Articulo.Descripcion as Articulo, i.Unidad.Codigo as UnidadMedida,
-    sum(l.Saldo) as Cantidad, (sum(l.Saldo * l.Precio) / sum(l.Saldo)) as PrecioPromedio, sum(l.Saldo * l.Precio) as Valorizacion
+  Select i.Id as Id, i.Almacen.Codigo as Almacen, i.Articulo.Codigo as CodArticulo, i.Articulo.Descripcion as Articulo, 
+    i.Unidad.Codigo as UnidadMedida, sum(l.Saldo) as Cantidad, (sum(l.Saldo * l.Precio) / sum(l.Saldo)) as PrecioPromedio, 
+    sum(l.Saldo * l.Precio) as Valorizacion
   From Inventario as i
     join i.Lotes as l
   Where i.Almacen.Id = :idAlmacen
-  Group By i.Id, i.Articulo.Codigo, i.Articulo.Descripcion, i.Unidad.Codigo
+  Group By i.Id, i.Almacen.Codigo, i.Articulo.Codigo, i.Articulo.Descripcion, i.Unidad.Codigo
       ";
     }
 

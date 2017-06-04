@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HS.Almacen.Dominio.Consultas
 {
-  public interface IStockActual: IConsulta<IList<Stock>>
+  public interface IStockPorArticulo: IConsulta<IList<Stock>>
   {
-    Guid IdAlmacen { get; set; }
+    Guid IdArticulo { get; set; }
   }
 }

@@ -46,7 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consultas\StockActual.cs" />
+    <Compile Include="Consultas\StockPorAlmacen.cs" />
+    <Compile Include="Consultas\StockPorArticulo.cs" />
     <Compile Include="Mapas\AlmacenMapa.cs" />
     <Compile Include="Mapas\ArticuloMapa.cs" />
     <Compile Include="Mapas\CierreInventarioMapa.cs" />

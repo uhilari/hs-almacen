@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consultas\IKardexMensual.cs" />
-    <Compile Include="Consultas\IStockActual.cs" />
+    <Compile Include="Consultas\IStockPorAlmacen.cs" />
+    <Compile Include="Consultas\IStockPorArticulo.cs" />
     <Compile Include="Entidades\Almacen.cs" />
     <Compile Include="Entidades\Articulo.cs" />
     <Compile Include="Entidades\CierreInventario.cs" />
@@ -55,6 +55,7 @@
     <Compile Include="Eventos\ArticuloIngresado.cs" />
     <Compile Include="Eventos\ArticuloRetirado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\IGestorStock.cs" />
     <Compile Include="Servicios\IInventarioFactory.cs" />
   </ItemGroup>
   <ItemGroup>

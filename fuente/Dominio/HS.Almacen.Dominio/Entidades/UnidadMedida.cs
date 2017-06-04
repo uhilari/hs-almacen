@@ -10,9 +10,9 @@ namespace HS.Almacen.Dominio.Entidades
     public virtual string Nombre { get; set; }
     public virtual decimal Cantidad { get; set; }
 
-    public virtual decimal Convertir(UnidadMedida destino, decimal cantidad)
+    public virtual decimal Convertir(UnidadMedida origen, decimal cantidad)
     {
-      return (cantidad * this.Cantidad) / destino.Cantidad;
+      return (cantidad * origen.Cantidad) / this.Cantidad;
     }
   }
 }
