@@ -1,4 +1,5 @@
 ﻿using HS.Almacen.Dominio.Eventos;
+using HS.Comun.Dominio.Entidades;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace HS.Almacen.Dominio.Entidades
     [Fact]
     public void AgregarIngreso_Correcto()
     {
-      _almacen.AgregarIngreso(Mocks.Fabrica.CrearIngreso());
+      _almacen.Agregar(Mocks.Fabrica.CrearIngreso());
 
       Assert.Equal(_almacen.Movimientos.Count, 1);
     }
@@ -33,7 +34,7 @@ namespace HS.Almacen.Dominio.Entidades
     {
       Assert.Throws<ArgumentNullException>(() =>
       {
-        _almacen.AgregarIngreso(null);
+        _almacen.Agregar((Movimiento)null);
       });
     }
 
@@ -42,7 +43,7 @@ namespace HS.Almacen.Dominio.Entidades
     {
       Assert.Throws<InvalidOperationException>(() =>
       {
-        _almacen.AgregarIngreso(Mocks.Fabrica.CrearSalida());
+        _almacen.Agregar(Mocks.Fabrica.CrearSalida());
       });
     }
 
@@ -55,7 +56,7 @@ namespace HS.Almacen.Dominio.Entidades
       //GestorEventos.Activador = mockActivadorDeEventos.Object;
       mockActivadorDeEventos.Setup(c => c.Activar(It.IsAny<ArticuloIngresado>()))
         .Callback(() => eventoActivo = true);
-      _almacen.AgregarIngreso(Mocks.Fabrica.CrearIngreso());
+      _almacen.Agregar(Mocks.Fabrica.CrearIngreso());
 
       Assert.True(eventoActivo);
     }
@@ -63,7 +64,7 @@ namespace HS.Almacen.Dominio.Entidades
     [Fact]
     public void AgregarExistencia_Correcto()
     {
-      _almacen.AgregarInventario(new Inventario(new Articulo(), new UnidadMedida()));
+      _almacen.Agregar(new Inventario(new Articulo(), new UnidadMedida()));
 
       Assert.NotEmpty(_almacen.Inventarios);
     }
@@ -73,7 +74,7 @@ namespace HS.Almacen.Dominio.Entidades
     {
       Assert.Throws<ArgumentNullException>(() =>
       {
-        _almacen.AgregarInventario(null);
+        _almacen.Agregar((Movimiento)null);
       });
     }
   }

@@ -20,7 +20,7 @@ namespace HS.Almacen.InitData
     static void Main(string[] args)
     {
       var sessionFactory = BuildFactory();
-      //IniciarDatos(sessionFactory);
+      IniciarDatos(sessionFactory);
       DatosDePrueba(sessionFactory);
       Console.WriteLine("Terminado");
       Console.ReadLine();

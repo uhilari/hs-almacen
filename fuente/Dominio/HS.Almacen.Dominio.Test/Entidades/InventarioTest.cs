@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using HS.Comun.Dominio.Entidades;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -49,7 +50,7 @@ namespace HS.Almacen.Dominio.Entidades
     public void AgregarLote_Correcto()
     {
       var existencia = new Inventario(_articulo.Object, _unidadMedida.Object);
-      var linea = new Lote(new Entidades.Documento());
+      var linea = new Lote(new Documento());
       
       existencia.AgregarLote(linea);
     }

@@ -1,5 +1,6 @@
 ﻿using HS.Almacen.Dominio.Consultas;
 using HS.Almacen.Dominio.Entidades;
+using HS.Comun.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;

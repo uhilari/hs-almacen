@@ -1,4 +1,5 @@
 ﻿using HS.Almacen.Dominio.Eventos;
+using HS.Comun.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,12 +37,24 @@ namespace HS.Almacen.Dominio.Entidades
       Lotes.Add(lote);
     }
 
-    public virtual decimal GetPrecioPromedio()
+    public virtual decimal Saldo
     {
-      var lotesActivos = Lotes.Filtrar(c => c.Saldo > 0);
-      var totalCantidad = lotesActivos.Sum(c => c.Saldo);
-      var totalMonto = lotesActivos.Sum(c => c.Saldo * c.Precio);
-      return totalMonto / totalCantidad;
+      get
+      {
+        return Lotes.Sum(c => c.Saldo);
+      }
+    }
+
+    public virtual decimal PrecioPromedio
+    {
+      get
+      {
+        var totalCantidad = Lotes.Sum(c => c.Saldo);
+        if (totalCantidad == 0)
+          return 0m;
+        var totalMonto = Lotes.Sum(c => c.Saldo * c.Precio);
+        return totalMonto / totalCantidad;
+      }
     }
   }
 }

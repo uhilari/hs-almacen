@@ -39,9 +39,8 @@
     <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
@@ -76,6 +75,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\hs-comun\fuente\HS.Comun.Dominio\HS.Comun.Dominio.csproj">
+      <Project>{23230FF8-DB56-4036-9EEA-1DAD1B029D4C}</Project>
+      <Name>HS.Comun.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\hs-core\fuente\Aplicacion\HS.Core.Aplicacion\HS.Core.Aplicacion.csproj">
       <Project>{31beff87-1b1e-48b5-918e-645577416df1}</Project>
       <Name>HS.Core.Aplicacion</Name>
@@ -121,7 +124,7 @@
       <Name>HS.Almacen.Persistencia.NHibernate</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Transversal\HS.Almacen.Transporte\HS.Almacen.Transporte.csproj">
-      <Project>{0472f61e-33dd-418a-9384-f9bf4a5f9b69}</Project>
+      <Project>{42f2488d-0fb9-4030-aa2b-fbce5bbd3aef}</Project>
       <Name>HS.Almacen.Transporte</Name>
     </ProjectReference>
     <ProjectReference Include="..\HS.Almacen.WebApi\HS.Almacen.WebApi.csproj">

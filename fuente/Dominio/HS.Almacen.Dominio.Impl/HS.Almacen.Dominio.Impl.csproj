@@ -59,13 +59,16 @@
       <Name>HS.Core.Dominio</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Transversal\HS.Almacen.Transporte\HS.Almacen.Transporte.csproj">
-      <Project>{0472F61E-33DD-418A-9384-F9BF4A5F9B69}</Project>
+      <Project>{42f2488d-0fb9-4030-aa2b-fbce5bbd3aef}</Project>
       <Name>HS.Almacen.Transporte</Name>
     </ProjectReference>
     <ProjectReference Include="..\HS.Almacen.Dominio\HS.Almacen.Dominio.csproj">
       <Project>{c65bdb0c-8d8c-4ae1-bdbd-e25618d2dac2}</Project>
       <Name>HS.Almacen.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

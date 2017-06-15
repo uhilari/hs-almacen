@@ -43,15 +43,13 @@
     <Compile Include="Consultas\IStockPorAlmacen.cs" />
     <Compile Include="Consultas\IStockPorArticulo.cs" />
     <Compile Include="Entidades\Almacen.cs" />
-    <Compile Include="Entidades\Articulo.cs" />
+    <Compile Include="Entidades\ArticuloNoEstaEnMovimientoException.cs" />
     <Compile Include="Entidades\CierreInventario.cs" />
-    <Compile Include="Entidades\Documento.cs" />
     <Compile Include="Entidades\Inventario.cs" />
     <Compile Include="Entidades\LineaMovimiento.cs" />
     <Compile Include="Entidades\Lote.cs" />
     <Compile Include="Entidades\Movimiento.cs" />
-    <Compile Include="Entidades\TipoDocumento.cs" />
-    <Compile Include="Entidades\UnidadMedida.cs" />
+    <Compile Include="Entidades\MovimientoEfectuadoException.cs" />
     <Compile Include="Eventos\ArticuloIngresado.cs" />
     <Compile Include="Eventos\ArticuloRetirado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,9 +66,12 @@
       <Name>HS.Core.Dominio</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Transversal\HS.Almacen.Transporte\HS.Almacen.Transporte.csproj">
-      <Project>{0472f61e-33dd-418a-9384-f9bf4a5f9b69}</Project>
+      <Project>{42f2488d-0fb9-4030-aa2b-fbce5bbd3aef}</Project>
       <Name>HS.Almacen.Transporte</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

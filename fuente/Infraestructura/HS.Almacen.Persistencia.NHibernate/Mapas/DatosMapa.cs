@@ -1,5 +1,4 @@
-﻿using HS.Almacen.Dominio.Entidades;
-using HS.Comun.Dominio.Entidades;
+﻿using HS.Comun.Dominio.Entidades;
 using NHibernate.Mapping.ByCode.Conformist;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,5 @@
 ﻿using HS.Almacen.Dominio.Entidades;
+using HS.Comun.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,11 +10,10 @@ namespace HS.Almacen.Dominio.Mocks
   {
     internal static Movimiento CrearIngreso()
     {
-      var ingreso = new Movimiento
+      var ingreso = new Ingreso
       {
         Fecha = DateTime.Today,
         Numero = 145,
-        Tipo = TipoMovimiento.Ingreso,
         Documento = new Documento
         {
           Fecha = DateTime.Today.AddDays(-3),
@@ -60,11 +60,10 @@ namespace HS.Almacen.Dominio.Mocks
 
     internal static Movimiento CrearSalida()
     {
-      return new Movimiento
+      return new Salida
       {
         Fecha = DateTime.Today,
         Numero = 445,
-        Tipo = TipoMovimiento.Salida,
         Documento = new Documento
         {
           Fecha = DateTime.Today.AddDays(-3),

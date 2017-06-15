@@ -1,4 +1,5 @@
 ﻿using HS.Almacen.Dominio.Entidades;
+using HS.Comun.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HS.Almacen.Aplicacion.Mapeos
 {
-  public class SalidaMapeo: Mapper<SalidaAlmacen, Movimiento>, IMapper<SalidaAlmacen, Movimiento>
+  public class SalidaMapeo: Mapper<SalidaAlmacen, Salida>, IMapper<SalidaAlmacen, Salida>
   {
     public SalidaMapeo(IGenericRepository repository, IMapperFactory mapperFactory) 
       : base(repository)

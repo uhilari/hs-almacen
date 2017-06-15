@@ -11,7 +11,7 @@ namespace HS.Almacen.Dominio.Servicios
 {
   public class InventarioFactoryTest
   {
-    private IInventarioFactory _factory;
+    private IInventarioFactory _factory = null;
 
     public InventarioFactoryTest()
     {

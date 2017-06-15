@@ -10,5 +10,6 @@ namespace HS.Almacen.Aplicacion.Servicios
   {
     void RegistrarIngreso(string idAlmacen, IngresoAlmacen ingresoAlmacen);
     void RegistrarSalida(string idAlmacen, SalidaAlmacen salidaAlmacen);
+    void EfectuarIngreso(string idAlmacen, string idIngreso, IList<LineaIngresoAlmacen> lineas);
   }
 }

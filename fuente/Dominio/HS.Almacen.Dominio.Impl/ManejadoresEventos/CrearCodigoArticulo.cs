@@ -1,5 +1,4 @@
-﻿using HS.Almacen.Dominio.Entidades;
-using HS.Comun.Dominio.Entidades;
+﻿using HS.Comun.Dominio.Entidades;
 using HS.Eventos;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HS.Almacen.Dominio.ManejadoresEventos
 {
-  public class CrearCodigoArticulo : IManejadorDeEvento<AntesGrabarEntidad<Entidades.Articulo>>
+  public class CrearCodigoArticulo : IManejadorDeEvento<AntesGrabarEntidad<Articulo>>
   {
     public const string KeySecuencia = "SEQ-ARTICULO";
 

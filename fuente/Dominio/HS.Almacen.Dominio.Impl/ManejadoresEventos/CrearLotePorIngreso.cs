@@ -22,7 +22,7 @@ namespace HS.Almacen.Dominio.ManejadoresEventos
       var existencia = e.Almacen.Inventarios.Buscar(c => c.Articulo == e.LineaIngreso.Articulo);
       if (existencia == null)
       {
-        existencia = e.Almacen.AgregarInventario(_existenciaFactory.CrearInventario(e.LineaIngreso));
+        existencia = e.Almacen.Agregar(_existenciaFactory.CrearInventario(e.LineaIngreso));
       }
       existencia.AgregarLote(_existenciaFactory.CrearLote(e.LineaIngreso));
     }

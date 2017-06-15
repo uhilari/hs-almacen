@@ -8,6 +8,7 @@ using HS.Almacen.Dominio.Eventos;
 using HS.Almacen.Dominio.ManejadoresEventos;
 using HS.Almacen.Dominio.Servicios;
 using HS.Almacen.Persistencia.NHibernate.Consultas;
+using HS.Comun.Dominio.Entidades;
 using HS.Eventos;
 using NHibernate;
 using NHibernate.Cfg;
@@ -60,11 +61,11 @@ namespace HS.Almacen.Config
     {
       return container
         .CoreAplicacion()
-        .RegisterDependency<IMapper<IngresoAlmacen, Movimiento>, IngresoMapeo>()
-        .RegisterDependency<IMapper<SalidaAlmacen, Movimiento>, SalidaMapeo>()
+        .RegisterDependency<IMapper<IngresoAlmacen, Ingreso>, IngresoMapeo>()
+        .RegisterDependency<IMapper<SalidaAlmacen, Salida>, SalidaMapeo>()
         .RegisterDependency<IMapper<Stock, Inventario>, StockMapeo>()
         .RegisterAppService<IAlmacenService, AlmacenService>()
-        .RegisterAppService<ICrudService<ArticuloDto>, CrudService<ArticuloDto, Dominio.Entidades.Articulo>>()
+        .RegisterAppService<ICrudService<ArticuloDto>, CrudService<ArticuloDto, Articulo>>()
         .RegisterAppService<IKardexService, KardexService>();
     }
 

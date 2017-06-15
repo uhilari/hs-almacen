@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using HS.Comun.Dominio.Entidades;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace HS.Almacen.Dominio.ManejadoresEventos
     {
       var existencia = Mocks.Fabrica.CrearExistencia(_evento.Almacen);
       ((Mocks.AlmacenMock)_evento.Almacen).SetExistenciaReturn(existencia);
-      var lote = new Entidades.Lote(new Entidades.Documento());
+      var lote = new Entidades.Lote(new Documento());
       _factory.Setup(c => c.CrearLote(_evento.LineaIngreso))
         .Returns(lote);
 
@@ -52,7 +53,7 @@ namespace HS.Almacen.Dominio.ManejadoresEventos
       ((Mocks.AlmacenMock)_evento.Almacen).SetExistenciaReturn(null);
       _factory.Setup(c => c.CrearInventario(_evento.LineaIngreso))
         .Returns(existencia);
-      var lote = new Entidades.Lote(new Entidades.Documento());
+      var lote = new Entidades.Lote(new Documento());
       _factory.Setup(c => c.CrearLote(_evento.LineaIngreso))
         .Returns(lote);
 

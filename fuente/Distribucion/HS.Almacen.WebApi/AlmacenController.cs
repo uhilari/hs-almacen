@@ -24,6 +24,12 @@ namespace HS.Almacen.WebApi
       _service.RegistrarIngreso(idAlmacen, ingreso);
     }
 
+    [Route("{idAlmacen}/ingreso/{idIngreso}/efectuar"), HttpPut]
+    public void EfectuarIngreso(string idAlmacen, string idIngreso, [FromBody] List<LineaIngresoAlmacen> lineas)
+    {
+      _service.EfectuarIngreso(idAlmacen, idIngreso, lineas);
+    }
+
     [Route("{idAlmacen}/salida"), HttpPost]
     public void RegistrarSalida(string idAlmacen, [FromBody] SalidaAlmacen salida)
     {
